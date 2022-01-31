@@ -1,0 +1,12 @@
+.text-input {
+    width: 95vw; 
+    border: 1px solid rgb(227, 170, 241);
+    height: 1rem;
+    border-radius: 1rem;
+    /* make text not start at very beginning of input */
+    padding: 0 0.5rem;
+    background: hsla(288, 73%, 59%, 1);
+    color: white;
+    font-size: 0.4rem;
+    margin-left:0.75rem;
+  }
