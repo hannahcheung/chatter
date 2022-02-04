@@ -10,8 +10,8 @@ function App() {
   const [showCamera, setShowCamera] = useState(false);
 
   function sendMessage(text) {
-    // TODO: implement not sending when there is only whitespace
-    if (text !== "") {
+    // do not send bubble if text is empty or only whitespace
+    if (text.trim() !== "") {
       console.log(text.trim().length);
       setMessages([text, ...messages]);
     }
