@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./TextInput.css";
+import { FiCamera } from "react-icons/fi";
 
 function TextInput(props) {
     // default value in input box is blank
@@ -17,12 +18,18 @@ function TextInput(props) {
     }
 
     return (
-        <footer>
+        <footer className="footer">
+            <button className="camera-button"
+                onClick={props.showCamera}
+                style={{left:10, right:'auto'}}>
+                <FiCamera style={{height:15, width:15}} />
+            </button>
             <input 
                 className="text-input"
                 value = {text}
                 onChange={(e) => setText(e.target.value)}
                 onKeyPress={onKeyPress}/>
+            <button className="send-button">↑</button>
         </footer>
     );
 }
