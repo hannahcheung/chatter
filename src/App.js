@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Message from "./Message";
+import NamePicker from "./NamePicker";
 import TextInput from "./TextInput";
 import Camera from "react-snap-pic";
 
@@ -8,6 +9,7 @@ function App() {
   // empty array of text messages
   const [messages, setMessages] = useState([]);
   const [showCamera, setShowCamera] = useState(false);
+
 
   function sendMessage(text) {
     // do not send bubble if text is empty or only whitespace
@@ -34,6 +36,7 @@ function App() {
       {showCamera && <Camera takePicture={takePicture} />}
       <header className="header">
         <span className="title">CHATTER APP</span>
+        <NamePicker/>
       </header>
       <div className="messages">
         {renderMessage()}
