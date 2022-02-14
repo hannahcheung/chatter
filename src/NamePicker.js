@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./NamePicker.css";
+import { FiEdit } from "react-icons/fi";
 
-function NamePicker() {
+function NamePicker(props) {
     const[editName, setEditName] = useState(false);
     const[name, setName] = useState("");
 
-    function send() {
-        setName("");
+    function send(text) {
+        setEditName(false);
+        props.setUsername(text);
     }
 
     function onKeyPress(e) {
@@ -15,22 +17,30 @@ function NamePicker() {
         }
     }
 
-    return(
-        <div className="name-picker">
-            <span className="name-title">
-            Username
-            </span>
-            <input 
-                className="name-input"
-                value = {name}
-                onChange={(e) => setName(e.target.value)}
-                onKeyPress={onKeyPress}>
-            </input>
-            <button className="name-send-button" onClick={send}>
-                OK
-            </button>
-        </div>
-    );
+    if (editName) {
+        return (
+            <div>
+                <input 
+                    className="name-input"
+                    value = {name}
+                    onChange = {(e) => setName(e.target.value)}
+                    onKeyPress = {onKeyPress}
+                    value = {name}/>
+                <button className="name-send-button" onClick={send}>
+                    OK
+                </button>
+            </div>
+        );
+    } else {
+        return(
+            <div className="name-picker">
+                <span className="name-title">
+                {name || "Set Username:"}
+                </span>
+                <FiEdit size="20" onClick={() => setEditName(true)}/>
+            </div>
+        );
+    }
 }
 
 export default NamePicker;

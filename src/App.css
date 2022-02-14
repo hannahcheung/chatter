@@ -24,51 +24,17 @@
   padding: 0.5rem;
 }
 
-
-/* create transparent footer that holds text box and send button */
-
-/*
-.footer {
-  display: flex;
-  height: 2rem;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  margin:0px;
-} */
-
-/* prevents default blue outline when clicking on text input */
-
-/*
-.text-input:focus {
-  outline: none;
-} */
-
-/* place send button at very end of the input box */
-
-/*
-.send-button {
-  background: white;
-  border-radius: 50%;
-  border: none;
-  height: 1rem;
-  width: 1rem;
-  position: relative;
-  right: 0.5rem;
-  cursor: pointer;
-  font-size: 0.5rem;
-  color: hsla(288, 73%, 59%, 1);
-} */
-
 .messages {
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-start;
-  /*overflow: auto; */
+  /* allows scrolling if there are more messages than the screen can fit */
+  overflow: auto;
   max-height: calc(100vh - 4rem);
   min-height: calc(100vh - 4rem);
   padding-left: 0.5rem;
 }
+
 .text-message {
   color: hsla(50, 68%, 93%, 1);
   background: hsla(288, 73%, 59%, 1);
