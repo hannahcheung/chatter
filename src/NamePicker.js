@@ -6,9 +6,12 @@ function NamePicker(props) {
     const[editName, setEditName] = useState(false);
     const[name, setName] = useState("");
 
+    // change name picker to have edit sign, display name on app header
     function send(text) {
-        setEditName(false);
-        props.setUsername(text);
+        if (text.trim() !== "") {
+            setEditName(false);
+            props.setUsername(text);
+        }
     }
 
     function onKeyPress(e) {
@@ -18,6 +21,8 @@ function NamePicker(props) {
     }
 
     if (editName) {
+        // if edit button is pressed, change display for user to be able
+        // to enter their username
         return (
             <div>
                 <input 
@@ -32,6 +37,8 @@ function NamePicker(props) {
             </div>
         );
     } else {
+        // default view when entering site or when username is set; either
+        // displays set username or default "set username" value
         return(
             <div className="name-picker">
                 <span className="name-title">
